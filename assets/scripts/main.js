@@ -6,11 +6,12 @@ function playHorn(){
   document.getElementById("horn-sound").play();
 }
  
-/*
+
 function changeSound() {
   changeSoundFile();
   changeSoundImage();
 }
+
 function changeSoundFile() {
     if(document.getElementById("radio-air-horn").checked){
         document.getElementById("horn-sound").src = "./assets/media/audio/air-horn.mp3";
@@ -62,6 +63,14 @@ function changeVolume(){
     document.getElementById("volume-slider").value = document.getElementById("volume-number").value;
     changeIcon();
 }
-*/
+  
+function changeSlider(){
+    document.getElementById("horn-sound").volume = (document.getElementById("volume-slider").value) / 100;
+    document.getElementById("volume-number").value = document.getElementById("volume-slider").value;
+    changeIcon();
+}
+
+document.getElementById("audio-selection").addEventListener("change",changeSound);
 document.getElementById("honk-btn").addEventListener("click",playHorn);
 document.getElementById("volume-slider").addEventListener("change",changeVolume);
+document.getElementById("volume-slider").addEventListener("change", changeSlider);
